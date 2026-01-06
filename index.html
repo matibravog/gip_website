@@ -39,135 +39,127 @@
 <section id="hero">
   <div class="hero-sticky">
 
-    <!-- Background -->
-    <div class="hero-bg">
-      <!-- Cambia src por tu imagen -->
-      <img src="assets/cohete/1.JPG" alt="Rocket launch background">
-    </div>
-    <div class="hero-ground"></div>
+<div class="hero-bg">
+  <img src="assets/cohete/1.JPG" alt="Rocket launch background">
+</div>
 
-    <!-- Text -->
-    <div class="hero-text">
-      <h1>Experimental Rocketry</h1>
-      <p>Aerospace Engineering & Research</p>
-    </div>
+<div class="hero-noise"></div>
+
+<div class="hero-text">
+  <h1>Experimental Rocketry</h1>
+  <p>Aerospace Engineering & Research</p>
+</div>
+
 
   </div>
 </section>
 
 <!-- ================= RECKET ================= -->
 <section id="rocket-section">
-  
-  <div class="rocket-sticky">
-    <!-- <h2 class="section-title rocket-title">Launch Vehicle</h2> -->
+
+  <!-- PINNED COHETE -->
+  <div class="rocket-pin">
     <img src="assets/cohete/2.JPG" alt="Rocket" class="rocket-image">
   </div>
 
-  <div class="rocket-cards">
-    <article class="rocket-card">
-      <h3>Design</h3>
-      <p>Structural and aerodynamic design of experimental launch vehicles.</p>
-    </article>
+  <!-- CONTENIDO (tarjetas) -->
+  <div class="rocket-content">
+    <div class="rocket-cards">
 
-    <article class="rocket-card">
-      <h3>Propulsion</h3>
-      <p>Solid motor development, testing and characterization.</p>
-    </article>
+      <article class="rocket-card left">
+        <h3>Structural Design</h3>
+        <p>Finite element optimization.</p>
+      </article>
 
-    <article class="rocket-card">
-      <h3>Avionics</h3>
-      <p>Telemetry, recovery and onboard computing systems.</p>
-    </article>
+      <article class="rocket-card right">
+        <h3>Trajectory</h3>
+        <canvas class="rocket-chart" data-chart="parabola"></canvas>
+      </article>
+
+      <article class="rocket-card left">
+        <h3>Propulsion</h3>
+        <p>Thrust and pressure profiling.</p>
+      </article>
+
+      <article class="rocket-card right">
+        <h3>Velocity</h3>
+        <canvas class="rocket-chart" data-chart="velocity"></canvas>
+      </article>
+
+      <article class="rocket-card left">
+        <h3>Recovery</h3>
+        <p>Dual deployment system.</p>
+      </article>
+
+      <article class="rocket-card right">
+        <h3>Avionics</h3>
+        <p>Telemetry & OBC.</p>
+      </article>
+
+      <article class="rocket-card left">
+        <h3>Guidance</h3>
+        <p>Passive stabilization.</p>
+      </article>
+
+      <article class="rocket-card right">
+        <h3>Testing</h3>
+        <p>Static fire & flight.</p>
+      </article>
+
+    </div>
   </div>
+
 </section>
+
 
 <!-- ================= PROJECTS ================= -->
 <section id="projects">
-  <h2>Projects</h2>
 
-  <div class="projects-grid">
-    <!-- Duplicate / edit cards as needed -->
-    <article class="project-card">
-      <div class="project-media"></div>
-      <h3>Rocket Alpha</h3>
-      <p>Solid propulsion test vehicle</p>
-      <span>2025 · In development</span>
-    </article>
-
-    <article class="project-card">
-      <div class="project-media"></div>
-      <h3>Rocket Beta</h3>
-      <p>Avionics & telemetry platform</p>
-      <span>2024 · Flown</span>
-    </article>
-
-    <article class="project-card">
-      <div class="project-media"></div>
-      <h3>Flight Computer</h3>
-      <p>Custom onboard computer</p>
-      <span>2025 · Testing</span>
-    </article>
-
-    <article class="project-card">
-      <div class="project-media"></div>
-      <h3>Recovery System</h3>
-      <p>Dual parachute deployment</p>
-      <span>2024 · Validated</span>
-    </article>
-
-    <article class="project-card">
-      <div class="project-media"></div>
-      <h3>Rocket Alpha</h3>
-      <p>Solid propulsion test vehicle</p>
-      <span>2025 · In development</span>
-    </article>
-
-    <article class="project-card">
-      <div class="project-media"></div>
-      <h3>Rocket Beta</h3>
-      <p>Avionics & telemetry platform</p>
-      <span>2024 · Flown</span>
-    </article>
-
-    <article class="project-card">
-      <div class="project-media"></div>
-      <h3>Flight Computer</h3>
-      <p>Custom onboard computer</p>
-      <span>2025 · Testing</span>
-    </article>
-
-    <article class="project-card">
-      <div class="project-media"></div>
-      <h3>Recovery System</h3>
-      <p>Dual parachute deployment</p>
-      <span>2024 · Validated</span>
-    </article>
+  <!-- COVER -->
+  <div class="projects-cover">
+    <img src="assets/projects/cover.jpg" alt="Projects cover">
+    <h2>Projects</h2>
   </div>
-</section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about">
-  <!-- Background image added via CSS -->
-  <h2 class="section-title">About Us</h2>
-  <div class="about-overlay">
-    <div class="about-card">
-      <h3>Engineering</h3>
-      <p>Design, simulation and manufacturing of experimental rockets.</p>
-    </div>
+  <!-- CONTENT -->
+  <div class="projects-content">
+    <div class="projects-grid">
 
-    <div class="about-card">
-      <h3>Research</h3>
-      <p>Propulsion, avionics, control systems and telemetry.</p>
-    </div>
+      <article class="project-card">
+        <div class="project-media">
+          <img src="assets/projects/project1.jpg">
+        </div>
+        <h3>Rocket Alpha</h3>
+        <p>Solid propulsion test vehicle</p>
+      </article>
+            <article class="project-card">
+        <div class="project-media">
+          <img src="assets/projects/project1.jpg">
+        </div>
+        <h3>Rocket Alpha</h3>
+        <p>Solid propulsion test vehicle</p>
+      </article>
+            <article class="project-card">
+        <div class="project-media">
+          <img src="assets/projects/project1.jpg">
+        </div>
+        <h3>Rocket Alpha</h3>
+        <p>Solid propulsion test vehicle</p>
+      </article>
+            <article class="project-card">
+        <div class="project-media">
+          <img src="assets/projects/project1.jpg">
+        </div>
+        <h3>Rocket Alpha</h3>
+        <p>Solid propulsion test vehicle</p>
+      </article>
 
-    <div class="about-card">
-      <h3>Experimentation</h3>
-      <p>Flight testing and iterative development.</p>
-      <a href="#" class="about-btn">Learn more</a>
-      <!-- Link to another page in the future -->
+      <!-- más tarjetas -->
     </div>
   </div>
+
 </section>
+
 
 <!-- ================= SPONSORS ================= -->
 <section id="sponsors">

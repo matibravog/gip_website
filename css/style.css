@@ -152,29 +152,47 @@ header.scrolled {
 /* ================= HERO ================= */
 
 #hero {
-  position: relative;
   height: 100vh;
-  overflow: hidden;
+  position: relative;
+  z-index: 0;
 }
 
 .hero-sticky {
-  position: relative;
-  height: 100%;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
-/* Imagen */
+
 .hero-bg {
   position: absolute;
   inset: 0;
-  z-index: 0;
 }
 
 .hero-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
 }
+
+.hero-text h1,
+.hero-text p {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroReveal 1.2s ease forwards;
+}
+
+.hero-text p {
+  animation-delay: 0.2s;
+}
+
+@keyframes heroReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* GRADIENTE GLOBAL CORRECTO */
 .hero-bg::after {
@@ -205,27 +223,31 @@ header.scrolled {
 /* ================= ROCKETS ================= */
 #rocket-section {
   position: relative;
-  min-height: 200vh;
-  background: transparent; /* importante */
+  min-height: 300vh; /* espacio total */
 }
 
-.rocket-sticky {
+.rocket-pin {
   position: sticky;
   top: 0;
-  /* height: 100vh; */
-  width: 100vw;
-  overflow: hidden;
+  height: 100vh;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: transparent;
 }
 
 .rocket-image {
-  width: 100vw;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
 }
+.rocket-content {
+  position: relative;
+  margin-top: 100vh; /* ← CLAVE ABSOLUTA */
+  padding: 0 10vw;
+}
+
 
 
 .rocket-title {
@@ -262,35 +284,75 @@ header.scrolled {
 
 
 .rocket-cards {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 200vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 4rem;
-  padding-left: 60vw;
+  gap: 6rem;
 }
+
+.rocket-card.left {
+  align-self: flex-start;
+}
+
+.rocket-card.right {
+  align-self: flex-end;
+}
+
 
 .rocket-card {
   width: 320px;
-  background: rgba(8,18,37,0.85);
-  border-left: 3px solid var(--gold);
-  padding: 1.8rem;
-  transform: translateY(40px);
+  padding: 2rem;
+  border-radius: 16px;
+  background:
+    linear-gradient(120deg,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.02)
+    );
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.15);
+
   opacity: 0;
-  animation: cardReveal linear forwards;
+  transform: translateY(60px);
+  animation: rocketReveal linear forwards;
   animation-timeline: view();
-  animation-range: entry 20% cover 40%;
+  animation-range: entry 10% cover 30%;
 }
 
-@keyframes cardReveal {
+
+.rocket-card.left {
+  align-self: flex-start;
+}
+
+.rocket-card.right {
+  align-self: flex-end;
+}
+
+.rocket-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(76,201,240,0.25),
+    transparent 60%
+  );
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.rocket-chart {
+  width: 100%;
+  height: 120px;
+}
+
+
+@keyframes rocketReveal {
   to {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
   }
 }
+
+
 
 /* ================= PROJECTS ================= */
 #projects {
@@ -337,6 +399,14 @@ header.scrolled {
   background: #111;
   margin-bottom: 1rem;
 }
+
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 
 /* ================= ABOUT ================= */
 #about {

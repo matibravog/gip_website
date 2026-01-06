@@ -29,3 +29,31 @@ window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
   heroText.style.transform = `translateY(${scrollY * 0.15}px)`;
 });
+
+// --------------------------------------------
+document.querySelectorAll(".rocket-chart").forEach(canvas => {
+  const ctx = canvas.getContext("2d");
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+
+  ctx.strokeStyle = "#4cc9f0";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+
+  if (canvas.dataset.chart === "parabola") {
+    for (let x = 0; x < canvas.width; x++) {
+      const y = -0.015 * (x - canvas.width/2) ** 2 + canvas.height * 0.8;
+      ctx.lineTo(x, y);
+    }
+  }
+
+  if (canvas.dataset.chart === "velocity") {
+    let y = canvas.height;
+    for (let x = 0; x < canvas.width; x += 10) {
+      y -= Math.random() * 4;
+      ctx.lineTo(x, y);
+    }
+  }
+
+  ctx.stroke();
+});
