@@ -152,10 +152,11 @@ header.scrolled {
 /* ================= HERO ================= */
 
 #hero {
-  height: 100vh;
   position: relative;
-  z-index: 0;
+  height: 100vh;
+  overflow: hidden; /* CLAVE */
 }
+
 
 .hero-sticky {
   position: sticky;
@@ -165,15 +166,25 @@ header.scrolled {
 
 
 .hero-bg {
-  position: absolute;
+  position: fixed;
   inset: 0;
+  z-index: -1;
+  opacity: 1;
+  transition: opacity 0.6s ease;
 }
+.hero-bg.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 
 .hero-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+
 
 .hero-text h1,
 .hero-text p {
@@ -220,11 +231,21 @@ header.scrolled {
   will-change: transform;
 }
 
+section {
+  position: relative;
+  background-color: var(--bg);
+  z-index: 1;
+}
+
+
 /* ================= ROCKETS ================= */
 #rocket-section {
   position: relative;
-  min-height: 300vh; /* espacio total */
+  min-height: 300vh;
+  background: var(--bg); /* OBLIGATORIO */
+  z-index: 1;
 }
+
 
 .rocket-pin {
   position: sticky;
@@ -244,22 +265,10 @@ header.scrolled {
 }
 .rocket-content {
   position: relative;
-  margin-top: 100vh; /* ← CLAVE ABSOLUTA */
+  margin-top: 0;              /* ⬅️ ANTES: 100vh */
   padding: 0 10vw;
-}
-
-
-
-.rocket-title {
-  position: absolute;
-  top: 6rem;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 3;
-  color: #fff;
-  background: none; /* ← CLAVE */
-  text-align: center;
-  pointer-events: none;
+  padding-bottom: 30vh;
 }
 
 
@@ -281,12 +290,45 @@ header.scrolled {
   
 }
 
+.rocket-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 3;
+  pointer-events: none;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.rocket-title h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.8rem;
+}
+
+.rocket-title p {
+  font-size: 1rem;
+  /* color: var(--muted); */
+  letter-spacing: 0.08em;
+}
+
+
+.rocket-title.fade-out {
+  opacity: 0;
+  transform: translate(-50%, -80%);
+}
 
 
 .rocket-cards {
   display: flex;
   flex-direction: column;
   gap: 6rem;
+}
+.rocket-cards--late {
+  margin-top: 100vh; /* ⬅️ aquí empieza el segundo acto */
 }
 
 .rocket-card.left {
@@ -299,60 +341,87 @@ header.scrolled {
 
 
 .rocket-card {
-  width: 320px;
-  padding: 2rem;
-  border-radius: 16px;
+  width: 420px;
+  padding: 2.6rem;
+  border-radius: 18px;
   background:
-    linear-gradient(120deg,
-      rgba(255,255,255,0.08),
-      rgba(255,255,255,0.02)
+    linear-gradient(
+      180deg,
+      rgba(10, 14, 25, 0.65),
+      rgba(5, 8, 16, 0.75)
     );
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.15);
-
+  backdrop-filter: blur(26px) saturate(120%);
+  -webkit-backdrop-filter: blur(26px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
   opacity: 0;
-  transform: translateY(60px);
-  animation: rocketReveal linear forwards;
-  animation-timeline: view();
-  animation-range: entry 10% cover 30%;
+  transform: translateY(-12px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
+.rocket-card.fade-out {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition:
+    opacity 0.35s ease, /* MÁS RÁPIDO */
+    transform 0.35s ease;
+}
+
+
+
+/* cuando aparece */
+.rocket-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 
 .rocket-card.left {
   align-self: flex-start;
+  margin-left: 8vw; /* ← MÁS CERCA DEL CENTRO */
 }
 
 .rocket-card.right {
   align-self: flex-end;
+  margin-right: 8vw; /* ← MÁS CERCA DEL CENTRO */
 }
+
 
 .rocket-card::before {
   content: "";
   position: absolute;
   inset: 0;
+  border-radius: inherit;
   background: radial-gradient(
     circle at top left,
-    rgba(76,201,240,0.25),
-    transparent 60%
+    rgba(76,201,240,0.18),
+    transparent 65%
   );
-  opacity: 0.6;
+  opacity: 0.7;
   pointer-events: none;
 }
+
+.rocket-card h3 {
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+}
+
+.rocket-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
 
 .rocket-chart {
   width: 100%;
   height: 120px;
 }
-
-
-@keyframes rocketReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
 
 /* ================= PROJECTS ================= */
 #projects {
@@ -442,46 +511,76 @@ header.scrolled {
 }
 
 /* ================= SPONSORS ================= */
+/* ================= SPONSORS ================= */
+
+#sponsors {
+  padding: 6rem 0;
+  background:
+    radial-gradient(circle at top, rgba(76,201,240,0.15), transparent 60%),
+    linear-gradient(to bottom, #02040a, #081225);
+}
+
+/* ---------- CAROUSEL ---------- */
+
 .carousel {
   overflow: hidden;
+  width: 100%;
   padding: 3rem 0;
 }
 
 .carousel-track {
   display: flex;
   gap: 3rem;
-  animation: scroll 20s linear infinite;
+  width: max-content;
+  animation: infiniteScroll 30s linear infinite;
 }
 
 .carousel:hover .carousel-track {
   animation-play-state: paused;
 }
 
+/* ---------- SPONSOR LOGO ---------- */
+
 .sponsor {
-  min-width: 150px;
-  height: 80px;
-  background: #111;
+  min-width: 160px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-#sponsors {
-  background:
-    radial-gradient(circle at top, rgba(76,201,240,0.15), transparent 60%),
-    linear-gradient(to bottom, #02040a, #081225);
+
+  background: rgba(255,255,255,0.04);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+
+  transition: transform 0.3s ease;
 }
 
+.sponsor img {
+  max-width: 80%;
+  max-height: 70%;
+  object-fit: contain;
 
-.carousel-track {
-  display: flex;
-  width: max-content;
-  animation: infiniteScroll 30s linear infinite;
+  filter: grayscale(100%) brightness(0.9);
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
+
+/* Hover */
+.sponsor:hover img {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.05);
+}
+
+/* ---------- ANIMATION ---------- */
 
 @keyframes infiniteScroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
+
 
 
 /* ================= CONTACT ================= */
@@ -517,7 +616,11 @@ footer {
   text-align: center;
   padding: 2rem;
   background: var(--bg-alt);
+  position: relative;
+  z-index: 2;
+  background: var(--bg-alt);
 }
+
 
 
 .section-title,

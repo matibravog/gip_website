@@ -60,52 +60,84 @@
   <!-- PINNED COHETE -->
   <div class="rocket-pin">
     <img src="assets/cohete/2.JPG" alt="Rocket" class="rocket-image">
+    <div class="rocket-title">
+      <h2>Rocket Systems Overview</h2>
+      <p>From structural design to flight validation</p>
+    </div>
   </div>
+  
+
 
   <!-- CONTENIDO (tarjetas) -->
   <div class="rocket-content">
     <div class="rocket-cards">
-
-      <article class="rocket-card left">
+      <div class="rocket-cards rocket-cards--early">
+              <article class="rocket-card left">
         <h3>Structural Design</h3>
-        <p>Finite element optimization.</p>
+        <p>
+          Airframe and internal structure designed using CAD and
+          finite element analysis to ensure stiffness, mass efficiency,
+          and survivability under launch loads.
+        </p>
       </article>
 
       <article class="rocket-card right">
-        <h3>Trajectory</h3>
+        <h3>Trajectory Analysis</h3>
         <canvas class="rocket-chart" data-chart="parabola"></canvas>
+        <p>
+          Numerical simulation of ascent trajectory considering thrust,
+          drag, mass variation, and atmospheric conditions.
+        </p>
       </article>
 
       <article class="rocket-card left">
         <h3>Propulsion</h3>
-        <p>Thrust and pressure profiling.</p>
+        <p>
+          Solid rocket motor characterization through thrust curve
+          measurement, chamber pressure analysis, and performance validation.
+        </p>
       </article>
 
       <article class="rocket-card right">
-        <h3>Velocity</h3>
+        <h3>Velocity Profile</h3>
         <canvas class="rocket-chart" data-chart="velocity"></canvas>
+        <p>
+          Velocity and acceleration reconstruction from onboard sensor
+          data to validate flight performance.
+        </p>
       </article>
-
       <article class="rocket-card left">
-        <h3>Recovery</h3>
-        <p>Dual deployment system.</p>
-      </article>
+        <h3>Recovery System</h3>
+        <p>
+          Dual-deployment recovery architecture with drogue and main
+        parachutes for controlled descent and safe payload recovery.
+      </p>
+    </article>
+    
+    <article class="rocket-card right">
+      <h3>Avionics</h3>
+      <p>
+        Custom onboard computer handling telemetry, data logging,
+        sensor fusion, and flight event detection.
+      </p>
+    </article>
+    
+    <article class="rocket-card left">
+      <h3>Guidance & Stability</h3>
+      <p>
+        Passive stabilization through fin design and center of pressure
+        optimization to ensure stable ascent.
+      </p>
+    </article>
 
-      <article class="rocket-card right">
-        <h3>Avionics</h3>
-        <p>Telemetry & OBC.</p>
-      </article>
-
-      <article class="rocket-card left">
-        <h3>Guidance</h3>
-        <p>Passive stabilization.</p>
-      </article>
-
-      <article class="rocket-card right">
-        <h3>Testing</h3>
-        <p>Static fire & flight.</p>
-      </article>
-
+    <article class="rocket-card right">
+      <h3>Testing & Validation</h3>
+      <p>
+        Ground testing, static fire campaigns, and flight tests to
+        iteratively validate subsystem performance.
+      </p>
+    </article>
+      </div>
     </div>
   </div>
 
@@ -115,11 +147,7 @@
 <!-- ================= PROJECTS ================= -->
 <section id="projects">
 
-  <!-- COVER -->
-  <div class="projects-cover">
-    <img src="assets/projects/cover.jpg" alt="Projects cover">
-    <h2>Projects</h2>
-  </div>
+  <h2>Projects</h2>
 
   <!-- CONTENT -->
   <div class="projects-content">
@@ -127,28 +155,28 @@
 
       <article class="project-card">
         <div class="project-media">
-          <img src="assets/projects/project1.jpg">
+          <img src="assets/cohete/3.jpg">
         </div>
         <h3>Rocket Alpha</h3>
         <p>Solid propulsion test vehicle</p>
       </article>
             <article class="project-card">
         <div class="project-media">
-          <img src="assets/projects/project1.jpg">
+          <img src="assets/telemetria/10.jpeg">
         </div>
         <h3>Rocket Alpha</h3>
         <p>Solid propulsion test vehicle</p>
       </article>
             <article class="project-card">
         <div class="project-media">
-          <img src="assets/projects/project1.jpg">
+          <img src="assets/recuperacion/1.jpg">
         </div>
         <h3>Rocket Alpha</h3>
         <p>Solid propulsion test vehicle</p>
       </article>
             <article class="project-card">
         <div class="project-media">
-          <img src="assets/projects/project1.jpg">
+          <img src="assets/simulador/1.png">
         </div>
         <h3>Rocket Alpha</h3>
         <p>Solid propulsion test vehicle</p>
@@ -167,21 +195,47 @@
 
   <div class="carousel">
     <div class="carousel-track">
-      <!-- Replace with sponsor logos -->
-      <div class="sponsor">LOGO</div>
-      <div class="sponsor">LOGO</div>
-      <div class="sponsor">LOGO</div>
-      <div class="sponsor">LOGO</div>
-      <div class="sponsor">LOGO</div>
 
-      <div class="sponsor">LOGO</div>
-      <div class="sponsor">LOGO</div>
-      <div class="sponsor">LOGO</div>
-      <div class="sponsor">LOGO</div>
-      <div class="sponsor">LOGO</div>
+      <div class="sponsor">
+        <img src="assets/logo/udec.png" alt="Sponsor 1">
+      </div>
+
+      <div class="sponsor">
+        <img src="assets/logo/armada.png" alt="Sponsor 2">
+      </div>
+
+      <div class="sponsor">
+        <img src="assets/logo/dim.png" alt="Sponsor 3">
+      </div>
+
+      <div class="sponsor">
+        <img src="assets/logo/udec.png" alt="Sponsor 1">
+      </div>
+
+      <div class="sponsor">
+        <img src="assets/logo/armada.png" alt="Sponsor 2">
+      </div>
+
+      <div class="sponsor">
+        <img src="assets/logo/dim.png" alt="Sponsor 3">
+      </div>
+
+      <div class="sponsor">
+        <img src="assets/logo/udec.png" alt="Sponsor 1">
+      </div>
+
+      <div class="sponsor">
+        <img src="assets/logo/armada.png" alt="Sponsor 2">
+      </div>
+
+      <div class="sponsor">
+        <img src="assets/logo/dim.png" alt="Sponsor 3">
+      </div>
+
     </div>
   </div>
 </section>
+
 
 <!-- ================= CONTACT ================= -->
 <section id="contact">
