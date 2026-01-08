@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rocketry Team</title>
+  <title>Equipo de Cohetería Experimental</title>
 
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="icon" href="favicon.ico" />
 
-  <!-- Icons -->
+  <!-- Íconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -19,14 +19,14 @@
     <div class="logo">ROCKET TEAM</div>
 
     <ul class="nav-links" id="nav-links">
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#about">Team</a></li>
-      <li><a href="#sponsors">Sponsors</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#about">Equipo</a></li>
+      <li><a href="#sponsors">Patrocinadores</a></li>
+      <li><a href="#contact">Contacto</a></li>
     </ul>
 
-    <!-- Hamburger (solo visible en mobile/tablet) -->
-    <button class="hamburger" id="hamburger" aria-label="Menu">
+    <!-- Menú hamburguesa -->
+    <button class="hamburger" id="hamburger" aria-label="Menú">
       <span></span>
       <span></span>
       <span></span>
@@ -34,351 +34,245 @@
   </nav>
 </header>
 
-
-<!-- ================= PARALLAX INTRO ================= -->
+<!-- ================= INTRO PARALLAX ================= -->
 <section id="intro-parallax">
 
   <!-- IMAGEN FIJA -->
   <img
     src="assets/cohete/5.JPG"
-    alt="Rocket"
+    alt="Lanzamiento de cohete experimental"
     class="intro-bg"
   >
 
   <!-- TEXTO -->
   <div class="intro-content">
-
     <div class="intro-text intro-text-1">
       <h2>Cohetería Experimental</h2>
       <p>
-        Diseñamos, construimos y lanzamos cohetes experimentales
-        desarrollados por estudiantes.
+        Diseñamos, construimos y lanzamos cohetes experimentales desarrollados
+        íntegramente por estudiantes, integrando ingeniería, ciencia y validación real.
       </p>
     </div>
-
   </div>
 
 </section>
 
-
-
-<!-- ================= RECKET ================= -->
+<!-- ================= COHETE ================= -->
 <section id="rocket-section">
 
   <!-- CONTENEDOR STICKY -->
   <div class="rocket-sticky">
 
-    <!-- PINNED COHETE -->
+    <!-- COHETE FIJO -->
     <div class="rocket-pin">
-      <img src="assets/cohete/2.JPG" alt="Rocket" class="rocket-image">
+      <img src="assets/cohete/2.JPG" alt="Cohete experimental" class="rocket-image">
 
       <div class="rocket-title">
-        <h2>Cohete experimental reutilizable</h2>
-        <p>Desarrollo de tecnologia aeroespacial en Chile</p>
+        <h2>Cohete Experimental Reutilizable</h2>
+        <p>Desarrollo de tecnología aeroespacial desde Chile</p>
       </div>
     </div>
 
   </div>
-  
 
-
-  <!-- CONTENIDO (tarjetas) -->
+  <!-- CONTENIDO -->
   <div class="rocket-content">
     <div class="rocket-cards">
       <div class="rocket-cards rocket-cards--early">
-              <article class="rocket-card left">
-        <h3>Structural Design</h3>
-        <p>
-          Airframe and internal structure designed using CAD and
-          finite element analysis to ensure stiffness, mass efficiency,
-          and survivability under launch loads.
-        </p>
-      </article>
 
-      <article class="rocket-card right">
-        <h3>Trajectory Analysis</h3>
-        <canvas class="rocket-chart" data-chart="parabola"></canvas>
-        <p>
-          Numerical simulation of ascent trajectory considering thrust,
-          drag, mass variation, and atmospheric conditions.
-        </p>
-      </article>
+        <article class="rocket-card left">
+          <h3>Diseño Estructural</h3>
+          <p>
+            Diseño del fuselaje y estructura interna mediante CAD y análisis
+            de elementos finitos, optimizando masa, rigidez y resistencia
+            a cargas de lanzamiento.
+          </p>
+        </article>
 
-      <article class="rocket-card left">
-        <h3>Propulsion</h3>
-        <p>
-          Solid rocket motor characterization through thrust curve
-          measurement, chamber pressure analysis, and performance validation.
-        </p>
-      </article>
+        <article class="rocket-card right">
+          <h3>Análisis de Trayectoria</h3>
+          <canvas class="rocket-chart" data-chart="parabola"></canvas>
+          <p>
+            Simulación numérica de la trayectoria considerando empuje,
+            arrastre aerodinámico, variación de masa y atmósfera real.
+          </p>
+        </article>
 
-      <article class="rocket-card right">
-        <h3>On board telemetry</h3>
-        <canvas class="rocket-chart" data-chart="velocity"></canvas>
-        <p>
-          Velocity and acceleration reconstruction from onboard sensor
-          data to validate flight performance.
-        </p>
-      </article>
-      <!-- <article class="rocket-card left">
-        <h3>Recovery System</h3>
-        <p>
-          Dual-deployment recovery architecture with drogue and main
-        parachutes for controlled descent and safe payload recovery.
-      </p>
-    </article>
-    
-    <article class="rocket-card right">
-      <h3>Avionics</h3>
-      <p>
-        Custom onboard computer handling telemetry, data logging,
-        sensor fusion, and flight event detection.
-      </p>
-    </article>
-    
-    <article class="rocket-card left">
-      <h3>Guidance & Stability</h3>
-      <p>
-        Passive stabilization through fin design and center of pressure
-        optimization to ensure stable ascent.
-      </p>
-    </article>
+        <article class="rocket-card left">
+          <h3>Propulsión</h3>
+          <p>
+            Caracterización de motores de combustible sólido mediante
+            ensayos estáticos, curvas de empuje y análisis de presión.
+          </p>
+        </article>
 
-    <article class="rocket-card right">
-      <h3>Testing & Validation</h3>
-      <p>
-        Ground testing, static fire campaigns, and flight tests to
-        iteratively validate subsystem performance.
-      </p>
-    </article> -->
+        <article class="rocket-card right">
+          <h3>Telemetría a Bordo</h3>
+          <canvas class="rocket-chart" data-chart="velocity"></canvas>
+          <p>
+            Reconstrucción de velocidad y aceleración a partir de sensores
+            embarcados para validar el desempeño en vuelo.
+          </p>
+        </article>
+
       </div>
     </div>
   </div>
 
 </section>
 
-<!-- ================= HERO ================= -->
+<!-- ================= HERO / EQUIPO ================= -->
 <section id="hero" class="about-hero">
   <div class="hero-sticky">
 
-    <!-- Background -->
     <div class="hero-bg">
-      <img src="assets/cohete/1.JPG" alt="Rocket launch background">
+      <img src="assets/cohete/1.JPG" alt="Lanzamiento del equipo">
     </div>
 
     <div class="hero-noise"></div>
 
-    <!-- CONTENIDO ABOUT -->
     <div class="hero-title">
-        <h1 class="reveal-title">¡Conoce a nuestro equipo!</h1>
+      <h1 class="reveal-title">Conoce a Nuestro Equipo</h1>
     </div>
 
-<!-- 🔥 MÉTRICAS FUERA -->
-<div class="hero-metrics">
-  <div class="metric">
-    <span class="metric-value">28</span>
-    <span class="metric-label">Miembros</span>
-  </div>
+    <!-- MÉTRICAS -->
+    <div class="hero-metrics">
+      <div class="metric">
+        <span class="metric-value">28</span>
+        <span class="metric-label">Integrantes</span>
+      </div>
 
-  <div class="metric">
-    <span class="metric-value">2007</span>
-    <span class="metric-label">Fundado</span>
-  </div>
+      <div class="metric">
+        <span class="metric-value">2007</span>
+        <span class="metric-label">Fundación</span>
+      </div>
 
-  <div class="metric">
-    <span class="metric-value">2</span>
-    <span class="metric-label">Lanzamientos</span>
-  </div>
+      <div class="metric">
+        <span class="metric-value">2</span>
+        <span class="metric-label">Lanzamientos</span>
+      </div>
 
-  <div class="metric">
-    <span class="metric-value">1.2 km</span>
-    <span class="metric-label">Altura Máxima</span>
-  </div>
-</div>
+      <div class="metric">
+        <span class="metric-value">1.2 km</span>
+        <span class="metric-label">Altura Máxima</span>
+      </div>
+    </div>
 
   </div>
 </section>
 
-<!-- ================= PROJECTS ================= -->
+<!-- ================= PROYECTOS ================= -->
 <section id="projects">
-  <h2>Projects</h2>
+<h2 class="section-title">Proyectos</h2>
+
+
   <div class="projects-bg">
     <img src="assets/cohete/4.jpg" alt="">
   </div>
 
-
-  <!-- CONTENT -->
   <div class="projects-content">
     <div class="projects-grid">
-      <!-- ================= PROJECT: REUSABLE ROCKET ================= -->
+
       <article class="project-card">
-
         <div class="project-media">
-          <img src="assets/cohete/2.JPG" alt="Reusable rocket system">
+          <img src="assets/cohete/2.JPG" alt="Cohete reutilizable">
         </div>
-
-        <h3>Reusable Rocket</h3>
-
+        <h3>Cohete Reutilizable</h3>
         <p>
-          Development of a reusable experimental rocket platform focused on
-          rapid iteration, hardware recovery, and cost-efficient flight testing.
+          Plataforma experimental reutilizable enfocada en iteración rápida
+          y recuperación del hardware.
         </p>
-
         <p class="project-desc">
-          The project explores structural durability, recovery mechanisms,
-          modular avionics, and post-flight inspection to enable multiple
-          launches using the same vehicle.
+          Se investigan mecanismos de recuperación, durabilidad estructural,
+          aviónica modular e inspección post-vuelo.
         </p>
-
-        <a href="#" class="project-btn">
-          View details →
-        </a>
-
+        <a href="#" class="project-btn">Ver detalles →</a>
       </article>
 
-
-      <!-- ================= PROJECT: PROPELLANT CHARACTERIZATION ================= -->
       <article class="project-card">
-
         <div class="project-media">
-          <img src="assets/cohete/3.jpg" alt="Propellant characterization">
+          <img src="assets/cohete/3.jpg" alt="Caracterización de propelentes">
         </div>
-
-        <h3>Propellant Characterization</h3>
-
+        <h3>Caracterización de Propelentes</h3>
         <p>
-          Experimental characterization of solid rocket propellants through
-          static fire tests and laboratory measurements.
+          Estudio experimental de propelentes sólidos mediante ensayos de laboratorio
+          y pruebas de combustión.
         </p>
-
         <p class="project-desc">
-          Thrust curves, chamber pressure, burn rate, and combustion stability
-          are analyzed to validate performance models and improve motor design.
+          Se analizan curvas de empuje, presión de cámara y estabilidad
+          para mejorar el diseño de motores.
         </p>
-
-        <a href="#" class="project-btn">
-          View details →
-        </a>
-
+        <a href="#" class="project-btn">Ver detalles →</a>
       </article>
 
-
-      <!-- ================= PROJECT: ACTIVE CONTROL ================= -->
       <article class="project-card">
-
         <div class="project-media">
-          <img src="assets/telemetria/10.jpeg" alt="Active control systems">
+          <img src="assets/telemetria/10.jpeg" alt="Control activo">
         </div>
-
-        <h3>Active Control Systems</h3>
-
+        <h3>Control Activo</h3>
         <p>
-          Design and implementation of active control algorithms for attitude
-          stabilization and flight correction.
+          Desarrollo de sistemas de control activo para estabilización
+          y corrección de actitud en vuelo.
         </p>
-
         <p class="project-desc">
-          The project integrates onboard sensors, control laws, and actuators
-          to actively influence rocket behavior during powered flight.
+          Integración de sensores, leyes de control y actuadores
+          en sistemas embebidos.
         </p>
-
-        <a href="#" class="project-btn">
-          View details →
-        </a>
-
+        <a href="#" class="project-btn">Ver detalles →</a>
       </article>
 
-
-      <!-- ================= PROJECT: TRAJECTORY ANALYSIS & SIMULATION ================= -->
       <article class="project-card">
-
         <div class="project-media">
-          <img src="assets/simulador/1.png" alt="Trajectory analysis and simulation">
+          <img src="assets/simulador/1.png" alt="Simulación de trayectoria">
         </div>
-
-        <h3>Trajectory Analysis & Simulations</h3>
-
+        <h3>Análisis y Simulación de Trayectoria</h3>
         <p>
-          Numerical simulation of rocket flight dynamics to predict trajectory,
-          altitude, velocity, and aerodynamic behavior.
+          Simulación numérica de la dinámica de vuelo para planificación
+          y validación de misiones.
         </p>
-
         <p class="project-desc">
-          Models include thrust variation, drag, mass depletion, atmospheric
-          conditions, and wind effects for accurate mission planning.
+          Modelos incluyen empuje, aerodinámica, masa variable,
+          atmósfera y viento.
         </p>
-
-        <a href="#" class="project-btn">
-          View details →
-        </a>
-
+        <a href="#" class="project-btn">Ver detalles →</a>
       </article>
 
     </div>
   </div>
-
 </section>
 
-
-<!-- ================= SPONSORS ================= -->
+<!-- ================= PATROCINADORES ================= -->
 <section id="sponsors">
-  <h2>Sponsors</h2>
+<h2 class="section-title">Patrocinadores</h2>
+
 
   <p class="sponsors-text">
-    Our missions are made possible thanks to the support of companies and
-    institutions that believe in student-led aerospace engineering.
+    Nuestros proyectos son posibles gracias al apoyo de instituciones
+    y empresas que creen en la ingeniería aeroespacial liderada por estudiantes.
   </p>
+
   <div class="carousel">
     <div class="carousel-track">
-
-      <div class="sponsor">
-        <img src="assets/logo/udec.png" alt="Sponsor 1">
-      </div>
-
-      <div class="sponsor">
-        <img src="assets/logo/armada.png" alt="Sponsor 2">
-      </div>
-
-      <div class="sponsor">
-        <img src="assets/logo/dim.png" alt="Sponsor 3">
-      </div>
-
-      <div class="sponsor">
-        <img src="assets/logo/udec.png" alt="Sponsor 1">
-      </div>
-
-      <div class="sponsor">
-        <img src="assets/logo/armada.png" alt="Sponsor 2">
-      </div>
-
-      <div class="sponsor">
-        <img src="assets/logo/dim.png" alt="Sponsor 3">
-      </div>
-
-      <div class="sponsor">
-        <img src="assets/logo/udec.png" alt="Sponsor 1">
-      </div>
-
-      <div class="sponsor">
-        <img src="assets/logo/armada.png" alt="Sponsor 2">
-      </div>
-
-      <div class="sponsor">
-        <img src="assets/logo/dim.png" alt="Sponsor 3">
-      </div>
-
+      <div class="sponsor"><img src="assets/logo/udec.png" alt="UdeC"></div>
+      <div class="sponsor"><img src="assets/logo/armada.png" alt="Armada"></div>
+      <div class="sponsor"><img src="assets/logo/dim.png" alt="DIM"></div>
+      <div class="sponsor"><img src="assets/logo/udec.png" alt="UdeC"></div>
+      <div class="sponsor"><img src="assets/logo/armada.png" alt="Armada"></div>
+      <div class="sponsor"><img src="assets/logo/dim.png" alt="DIM"></div>
+      <div class="sponsor"><img src="assets/logo/udec.png" alt="UdeC"></div>
+      <div class="sponsor"><img src="assets/logo/armada.png" alt="Armada"></div>
+      <div class="sponsor"><img src="assets/logo/dim.png" alt="DIM"></div>
     </div>
   </div>
-    
+
   <a href="#contact" class="sponsor-cta">
-    Become a Sponsor →
+    Conviértete en Patrocinador →
   </a>
 </section>
 
-
-<!-- ================= CONTACT ================= -->
+<!-- ================= CONTACTO ================= -->
 <section id="contact">
-  <h2>Contact</h2>
+<h2 class="section-title">Contacto</h2>
 
   <div class="contact-icons">
     <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -393,24 +287,23 @@
 
     <div class="footer-brand">
       <h3>Rocket Team</h3>
-      <p>Experimental student rocketry and aerospace engineering.</p>
+      <p>Cohetería experimental y desarrollo aeroespacial estudiantil.</p>
     </div>
 
     <div class="footer-links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#sponsors">Sponsors</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">Equipo</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#sponsors">Patrocinadores</a>
+      <a href="#contact">Contacto</a>
     </div>
 
     <div class="footer-meta">
       <span>© 2026 Rocket Team</span>
-      <span>University of Concepción</span>
+      <span>Universidad de Concepción</span>
     </div>
 
   </div>
 </footer>
-
 
 <script src="./js/script.js"></script>
 </body>

@@ -197,7 +197,7 @@ header.scrolled {
   z-index: -1;
 }
 .intro-content {
-  position: sticky;
+  position: absolute;
   top: 0;
 
   width: 100vw;
@@ -638,7 +638,7 @@ header.scrolled {
 /* ================= PROJECTS ================= */
 #projects {
   position: relative;
-  padding: 8rem 0;
+  padding: 4rem 0;
   overflow: hidden;
 }
 
@@ -689,6 +689,7 @@ header.scrolled {
 
 
 .projects-grid {
+  margin-top: 4rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
@@ -712,8 +713,8 @@ header.scrolled {
   padding: 3rem;
   border-radius: 20px;
 
-  background: rgba(8, 18, 37, 0.35);
-  backdrop-filter: blur(22px) saturate(130%);
+  background: rgba(8, 18, 37, 0.121);
+  backdrop-filter: blur(12px) saturate(130%);
   -webkit-backdrop-filter: blur(22px) saturate(130%);
 
   border: 1px solid rgba(255,255,255,0.18);
@@ -831,10 +832,10 @@ header.scrolled {
 
 .carousel-track {
   display: flex;
-  gap: 3rem;
   width: max-content;
   animation: infiniteScroll 30s linear infinite;
 }
+
 
 .carousel:hover .carousel-track {
   animation-play-state: paused;
@@ -853,16 +854,14 @@ header.scrolled {
 .sponsor {
   min-width: 160px;
   height: 90px;
+
+  margin-right: 3rem; /* 👈 AQUÍ VA EL ESPACIADO */
+
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background: rgba(255,255,255,0.04);
-  border-radius: 14px;
-  backdrop-filter: blur(10px);
-
-  transition: transform 0.3s ease;
 }
+
 
 .sponsor img {
   max-width: 80%;
@@ -947,26 +946,41 @@ header.scrolled {
 
 
 
+/* ================= SECTION TITLES ================= */
 
-.section-title,
-section > h2 {
+/* ================= SECTION TITLES ================= */
+
+.section-title {
   max-width: 1200px;
-  margin: 0 auto 4rem;
+  margin: 0 auto 5rem;   /* 👈 separa del contenido (cards) */
+
   font-size: clamp(1.8rem, 2vw, 2.4rem);
   letter-spacing: 0.12em;
+
+  text-align: center;
   position: relative;
 }
 
-.section-title::after,
-section > h2::after {
+/* Línea amarilla centrada */
+.section-title::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -12px;
-  width: 90px;
+
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -14px;
+
+  width: 100px;
   height: 2px;
-  background: linear-gradient(to right, var(--gold), transparent);
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--gold),
+    transparent
+  );
 }
+
 
 /* ================= FOOTER ================= */
 
