@@ -3,18 +3,15 @@ const header = document.getElementById("header");
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 
-// Background blur on scroll
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 50);
 });
 
-// Mobile menu toggle
 hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
   hamburger.classList.toggle("active");
 });
 
-// Close menu when clicking a link (UX PRO)
 navLinks.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("active");
@@ -22,15 +19,49 @@ navLinks.querySelectorAll("a").forEach(link => {
   });
 });
 
-/* ================= HERO ================= */
-const heroText = document.querySelector(".hero-text");
 
-window.addEventListener("scroll", () => {
+/* ================= INTRO PARALLAX ================= */
+const introSection = document.getElementById("intro-parallax");
+const bgImage = document.querySelector(".intro-bg");
+
+function updateIntroParallax() {
+  if (!introSection || !bgImage) return;
+
+  const vh = window.innerHeight;
   const scrollY = window.scrollY;
-  heroText.style.transform = `translateY(${scrollY * 0.15}px)`;
-});
+  const start = introSection.offsetTop;
+  const distance = vh * 1.5;
 
-// --------------------------------------------
+  let progress = (scrollY - start) / distance;
+  progress = Math.min(Math.max(progress, 0), 1);
+
+  const scale = 1 + progress * 0.9;
+  const blur = progress * 12;
+
+  bgImage.style.transform = `scale(${scale})`;
+  bgImage.style.filter = `blur(${blur}px)`;
+}
+
+window.addEventListener("scroll", updateIntroParallax);
+window.addEventListener("resize", updateIntroParallax);
+updateIntroParallax();
+
+
+// ocultar texto 
+const introContent = document.querySelector(".intro-content");
+
+if (introContent) {
+  const introTop = introSection.offsetTop;
+  const introHeight = introSection.offsetHeight;
+  const vh = window.innerHeight;
+
+  const insideIntro =
+    window.scrollY < introTop + introHeight - vh;
+
+  introContent.classList.toggle("intro-hidden", !insideIntro);
+}
+
+/* ================= ROCKET CHARTS ================= */
 document.querySelectorAll(".rocket-chart").forEach(canvas => {
   const ctx = canvas.getContext("2d");
   canvas.width = canvas.offsetWidth;
@@ -42,7 +73,7 @@ document.querySelectorAll(".rocket-chart").forEach(canvas => {
 
   if (canvas.dataset.chart === "parabola") {
     for (let x = 0; x < canvas.width; x++) {
-      const y = -0.015 * (x - canvas.width/2) ** 2 + canvas.height * 0.8;
+      const y = -(-0.015 * (x - canvas.width / 2) ** 2 + canvas.height * 0.8) + 100;
       ctx.lineTo(x, y);
     }
   }
@@ -50,7 +81,7 @@ document.querySelectorAll(".rocket-chart").forEach(canvas => {
   if (canvas.dataset.chart === "velocity") {
     let y = canvas.height;
     for (let x = 0; x < canvas.width; x += 10) {
-      y -= Math.random() * 4;
+      y -= Math.exp(x / 120) * Math.random();
       ctx.lineTo(x, y);
     }
   }
@@ -58,122 +89,52 @@ document.querySelectorAll(".rocket-chart").forEach(canvas => {
   ctx.stroke();
 });
 
-// --------------------hero--------------------
-const hero = document.getElementById("hero");
-const heroBg = document.querySelector(".hero-bg");
-const rocketSection = document.getElementById("rocket-section");
 
-const heroObserver = new IntersectionObserver(
-  ([entry]) => {
-    if (!entry.isIntersecting) {
-      heroBg.classList.add("hidden");
-    } else {
-      heroBg.classList.remove("hidden");
-    }
-  },
-  {
-    threshold: 0.1
-  }
-);
-
-heroObserver.observe(hero);
-
-
-/* ================= ROCKET CARDS REVEAL ================= */
+/* ================= ROCKET CARDS + TITLE ================= */
 const cards = document.querySelectorAll(".rocket-card");
+const rocketTitle = document.querySelector(".rocket-title");
 
 function updateRocketCards() {
   const vh = window.innerHeight;
 
   cards.forEach(card => {
     const rect = card.getBoundingClientRect();
+    const visibleTop = vh * 0.15;
+    const visibleBottom = vh * 0.85;
 
-    // Zona activa real
-    const visibleZoneTop = vh * 0.15;
-    const visibleZoneBottom = vh * 0.85;
+    const visible =
+      rect.top < visibleBottom &&
+      rect.bottom > visibleTop;
 
-    const fullyVisible =
-      rect.top < visibleZoneBottom &&
-      rect.bottom > visibleZoneTop;
-
-    if (fullyVisible) {
-      card.classList.add("visible");
-      card.classList.remove("fade-out");
-    } else {
-      card.classList.remove("visible");
-      card.classList.add("fade-out");
-    }
+    card.classList.toggle("visible", visible);
+    card.classList.toggle("fade-out", !visible);
   });
+
+  // ---- TÍTULO ----
+  if (rocketTitle && cards.length) {
+    const firstRect = cards[0].getBoundingClientRect();
+    rocketTitle.classList.toggle("fade-out", firstRect.top < vh * 0.65);
+  }
 }
 
 window.addEventListener("scroll", updateRocketCards);
 window.addEventListener("resize", updateRocketCards);
 updateRocketCards();
 
-// ------------------------FADE OUT ROCKET CARD --------------
-window.addEventListener("scroll", () => {
-  const viewportHeight = window.innerHeight;
 
-  document.querySelectorAll(".rocket-card.visible").forEach(card => {
-    const rect = card.getBoundingClientRect();
+/* ================= ABOUT REVEAL ================= */
+const revealObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle(
+        "reveal-visible",
+        entry.isIntersecting
+      );
+    });
+  },
+  { threshold: 0.2 }
+);
 
-    const topFadeZone = viewportHeight * 0.45;
-    const bottomFadeZone = viewportHeight * 0.85;
-
-    // Si entra en la zona superior de salida
-    if (rect.top < topFadeZone && rect.top > -rect.height) {
-      card.classList.add("fade-out");
-    }
-    // Si entra en la zona inferior de salida
-    else if (rect.bottom > bottomFadeZone && rect.bottom < viewportHeight + rect.height) {
-      card.classList.add("fade-out");
-    }
-    // Zona segura: totalmente visible
-    else {
-      card.classList.remove("fade-out");
-    }
-  });
-});
-
-// ---------------------- TITULO --------------------
-const rocketTitle = document.querySelector(".rocket-title");
-
-function updateRocketCards() {
-  const vh = window.innerHeight;
-
-  document.querySelectorAll(".rocket-card").forEach(card => {
-    const rect = card.getBoundingClientRect();
-
-    const visibleZoneTop = vh * 0.15;
-    const visibleZoneBottom = vh * 0.85;
-
-    const fullyVisible =
-      rect.top < visibleZoneBottom &&
-      rect.bottom > visibleZoneTop;
-
-    if (fullyVisible) {
-      card.classList.add("visible");
-      card.classList.remove("fade-out");
-    } else {
-      card.classList.remove("visible");
-      card.classList.add("fade-out");
-    }
-  });
-
-  // -------- ROCKET TITLE BEHAVIOR --------
-  const rocketTitle = document.querySelector(".rocket-title");
-  const firstCard = document.querySelector(".rocket-card");
-
-  if (rocketTitle && firstCard) {
-    const rect = firstCard.getBoundingClientRect();
-
-    // Cuando la primera tarjeta empieza a entrar
-    if (rect.top < vh * 0.65) {
-      rocketTitle.classList.add("fade-out");
-    } else {
-      rocketTitle.classList.remove("fade-out");
-    }
-  }
-
-  
-}
+document
+  .querySelectorAll(".reveal-title, .reveal-text")
+  .forEach(el => revealObserver.observe(el));
